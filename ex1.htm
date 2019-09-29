@@ -1,0 +1,48 @@
+<style>
+    p{
+       background: red 
+    }
+</style>
+<p id="result" class="name">Enter number</p>
+<input id="number">
+<button onclick="testFunction()">Guess</button>
+<!-- <h3 id = "pass">pass text</h3> -->
+
+<script>
+    var currentNumber = Math.floor(Math.random()*10)
+    console.log('currentNumber',currentNumber)
+    var count = 10;
+    //var passText = ""
+    function testFunction()
+    {
+        var inputNumber = document.getElementById("number").value
+        //passText += passText + '</br>' + inputNumber
+        console.log('inputNumber',inputNumber)
+        if(inputNumber == currentNumber)
+        {
+            document.getElementById("result").innerHTML = "Congratulations!! You guessed correctly"
+        }
+
+        else if(inputNumber > currentNumber)
+        {
+            count--
+            if(count == 0)
+            {
+                alert('Lose')
+                location.reload
+            }
+            document.getElementById("result").innerHTML = "Sorry your guess is too high, You have " + count + " guesses left"
+        }
+        else if(inputNumber < currentNumber)
+        {
+            count--
+            if(count == 0)
+            {
+                alert('Lose')
+                location.reload
+            }
+            document.getElementById("result").innerHTML = "Sorry your guess is too low, You have " + count + " guesses left"
+        }
+    }
+    
+</script>
